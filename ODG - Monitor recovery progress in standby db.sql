@@ -1,0 +1,2 @@
+select to_char(START_TIME,'DD-MON-YYYY HH24:MI:SS') "Recovery Start Time",to_char(item)||' = '||to_char(sofar)||' '||to_char(units) "Progress"
+from v$recovery_progress where start_time=(select max(start_time) from v$recovery_progress);
